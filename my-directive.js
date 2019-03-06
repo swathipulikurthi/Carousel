@@ -45,13 +45,14 @@ appRoot.directive('myCarousel',function()
            {
             dotIndex[i].on('click',{index:i},dot_scrollRight);
            }
+           indexButton=0;
 
          
           function dot_scrollRight(e)
            {
                var index=e.data.index;
 
-               console.log("called"+""+index);
+              // console.log("called"+""+index);
                scrollValue=(index*dot_scrollValue);
             
             angular.element(carouselContainer).animate({scrollLeft:scrollValue},400);
@@ -62,7 +63,13 @@ appRoot.directive('myCarousel',function()
         // if(angular.element(v).hasClass('active')){
         //     angular.element(v).removeClass('active');
         // }});
+        activeDot(index);
+           indexButton=index;
+           
+           }
 
+           function activeDot(input)
+           {
             $element.find('li').filter(function() {
                 return angular.element(this).removeClass('active');
             });
@@ -70,8 +77,7 @@ appRoot.directive('myCarousel',function()
             // {
             // angular.element(carouselDom.children[2].children[i]).removeClass('active');
             // }
-            angular.element(carouselDom.children[2].children[index]).addClass('active');
-           
+            angular.element(carouselDom.children[2].children[input]).addClass('active');
            }
 
         //   dotIndex0.on('click',scrollRight);
@@ -86,28 +92,34 @@ appRoot.directive('myCarousel',function()
           
            btnLeft.on('click',scrollLeft);
            btnRight.on('click',scrollRight);
+
+        
            
           function scrollRight()
            {
             if(carouselContainer.scrollLeft < 800) 
             {
+                indexButton++;
             angular.element(carouselContainer).animate({scrollLeft:'+='+scrollWidth},400);
             }
             else{
-
                 angular.element(carouselContainer).animate({scrollLeft:'0'}, 900);
-
+                indexButton=0;
             }
               
-           
+            activeDot(indexButton);
            }
            function scrollLeft() {
+
             if(carouselContainer.scrollLeft >= 800) {
             angular.element(carouselContainer).animate({scrollLeft: '0'}, 900);
+            indexButton=0;
             }
             else {
             angular.element(carouselContainer).animate({scrollLeft: '-=' + scrollWidth}, 400);
+            indexButton--;
             }
+            activeDot(indexButton);
         }
     }
        
