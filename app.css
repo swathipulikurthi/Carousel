@@ -1,60 +1,64 @@
-.carousel-tile
-{
-width: 200px;
-height: 200px;
-float: left; 
-}
-
-.carousel-tile img{
-    width:200px;
+.carousel-tile {
+    width: 200px;
     height: 200px;
-
+    float: left;
 }
 
-.carousel-container{
+.carousel-tile img {
+    width: 200px;
+    height: 200px;
+}
+
+.carousel-container {
     width: 600px;
     height: 200px;
-    /* border: 1px solid #d3d3d3; */
     margin: 100px auto 0 auto;
-    display:flex;
-    /* overflow-x:auto; */
-    overflow:hidden;
-  
-}
- .carousel-indicators{
-     position: relative;
-     bottom: 100px;
- }
-
-.btn-position-right
-{
-position: relative;
-bottom: 120px;
-float: right;
-right: 468px;
-background-color: transparent;
-color: black;
-font-size: 30px;
-font-weight: bold;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-border-radius: 5px;
-text-align: center;
+    display: flex;
+    overflow: hidden;
 }
 
-.btn-position-left
-{
-position: relative;
-bottom: 120px;
-left: 468px;
-background-color: transparent;
-color: black;
-font-size: 30px;
-font-weight: bold;
-padding: 5px 10px;
-border: none;
-cursor: pointer;
-border-radius: 5px;
-text-align: center;
+.carousel-indicators {
+    position: relative;
+    bottom: 100px;
+}
+
+.btn-position-right {
+    position: relative;
+    bottom: 120px;
+    float: right;
+    right: 468px;
+    background-color: transparent;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-position-left {
+    position: relative;
+    bottom: 120px;
+    left: 468px;
+    background-color: transparent;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn_format {
+    float: right;
+    position: relative;
+    bottom: 200px;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #eeeeee;
 }

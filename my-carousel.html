@@ -1,38 +1,28 @@
 <div class="my-carousel">
-
   <div class="carousel-container ">
-
     <div class="carousel-tile" ng-repeat="img in vm.imageUrls">
-      <!-- <img src="https://images.unsplash.com/photo-1549725731-e8b29d266553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"> -->
-
       <img ng-src="{{img}}">
-
+      <button type="button" class="btn_format" ng-click="vm.removeImage(img);"> X </button>
     </div>
   </div>
-  <div class="btn-container">
+  <div class="btn-container" ng-show="vm.imageUrls.length>2">
     <button type="button" class="btn btn-info btn-left btn-position-left">
-      < </button> <button type="button" class="btn btn-info btn-right btn-position-right">
+      < 
+    </button>
+     <button type="button" class="btn btn-info btn-right btn-position-right">
         >
     </button>
-
-
   </div>
-  <!-- 
-<ol class="carousel-indicators" style="top:-100">
-    <li data-target="#myCar" ng-repeat="img in vm.imageUrls" ></li>
-  </ol> -->
-
   <ol class="carousel-indicators">
     <li class="active"></li>
     <li></li>
     <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-
   </ol>
-
-
-
+  <div style="text-align: center">
+    Add an image??
+    <i style="font-size: 20px">
+      <input type="text" ng-model="vm.imageUrl" placeholder="Specify Image URL">
+    </i>
+    <button type="button" class="btn btn-info" ng-click="addImage();">Add</button>
+  </div>
 </div>

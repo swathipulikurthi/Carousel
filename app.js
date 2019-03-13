@@ -1,28 +1,20 @@
 var appRoot = angular.module('myApp', []);
+appRoot.controller('AppController', ['$scope', 'ImageService', function ($scope, ImageService) {
+  $scope.vm = {};
+  $scope.vm.message = "Welcome to angular js directive";
+  $scope.vm.imageUrl;
+  $scope.vm.imageUrls = ImageService.getImages();
+  $scope.addImage = function () {
+    ImageService.createImage($scope.vm.imageUrl);
+    console.log($scope.vm.imageUrls);
+    $scope.vm.imageUrl=null;
+  }
+  $scope.vm.removeImage = function removeImage(imageUrl) {
+    if (imageUrl) {
+      ImageService.deleteImage(imageUrl);
+      console.log($scope.vm.imageUrls);
+    }
+  }
 
-
-
-console.log('angularjs module loaded ' + appRoot.name);
-
-
-
-appRoot.controller('AppController',['$scope',function($scope)
-{
-$scope.vm={};
-$scope.vm.message="Welcome to angular js directive";
-$scope.vm.imageUrls=[
-    "https://images.unsplash.com/photo-1535726890525-b0557398cb32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
-    "https://images.unsplash.com/photo-1545573139-feec87d23486?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
-    "https://images.unsplash.com/photo-1529907109632-2a4924535fc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80",
-    "https://images.unsplash.com/photo-1529831129093-0fa4866281ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=2133&q=80",
-    "https://images.unsplash.com/photo-1546525374-64a93a33db58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-    "https://images.unsplash.com/photo-1523286435788-0abb75f0fbd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1289&q=80",
-    "https://images.unsplash.com/photo-1549725731-e8b29d266553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-];
-
-// $scope.vm.getJustification=function getJustification(selectedObj)
-// {
-//  console.log("selected object is"+""+ selectedObj+"---------"+$( "li" ).index( selectedObj ) );
-// }
 
 }]);
